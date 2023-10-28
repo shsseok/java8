@@ -1,3 +1,5 @@
+package Stream;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -16,7 +18,7 @@ import java.util.stream.Stream;
 //5.스트림의 작업을 병렬로 처리 -->병렬 스트림 (멀티 스트림)
 //6 기본형 스트림 IntStream DoubleStreaam 등등
 //Arrays--> 배열을 다루기 위한 편리한 메서드를 제공 static으로 되어져있다 --> 찾아보면서 사용
-public class Main {
+public class MakeSteram {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1,2,3,4,5);
         Stream<Integer> integerStream=list.stream();
