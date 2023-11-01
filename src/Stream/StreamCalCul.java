@@ -1,6 +1,32 @@
 package Stream;
-//1.중간 연산 n번 가능 중간연산은 반환값이 스트림이기 때문에 메소드 체인이 가능하다 이어서 쓸수 있음
-//2.최종 연산 1번 만 가능 --> 1번한다? 스트림 닫힘 close됨
-public class StreamCalCul {
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class StreamCalCul {
+    public static void main(String[] args) {
+    /*    List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        Stream<Integer> intStream = list.stream();
+        intStream.forEach(System.out::println);
+        Stream<String> stringStream=Stream.of(new String[]{"a","b","c"});
+        stringStream.sorted(String::compareTo);*/
+
+        Stream<File> fileStream=Stream.of(new File("ex1.java"),new File("ex1"),new File("Ex1.bak"));
+        Stream<String> filenameStream = fileStream.map(File::getName);
+        filenameStream.forEach(System.out::println);
+
+
+        Stream<File> fileStream1=Stream.of(new File("ex1.java"),new File("ex1"),new File("Ex1.bak"));
+        fileStream1.map(File::getName)
+                .filter((s) -> s.indexOf(".")!=-1)
+                .peek(s ->System.out.println("filename:"+s))
+                .map(d->d.substring(d.indexOf('.')+1))
+                .map((d)->d.toUpperCase())
+                .distinct()
+                .forEach(System.out::println);
+    }
 }

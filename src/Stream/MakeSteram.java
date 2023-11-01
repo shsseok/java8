@@ -2,6 +2,7 @@ package Stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -39,7 +40,9 @@ public class MakeSteram {
         Stream<Integer> intStream2 =Arrays.stream(intArr2);
            // intStream.forEach(System.out::println);
             System.out.println("count="+intStream2.count());
-
+        //난수 스트림 생성
+        IntStream ranStream=new Random().ints(5);
+        ranStream.limit(5).forEach(System.out::println);
 
             //람다식 스트림 --> 중요 iterate() generate() 얘네는 무한 스트림이다. iterator은 이전 요소에 종속적 seed들어감 초기값
             //generate는 이전 요소에 독립적이다 seed사용 x
